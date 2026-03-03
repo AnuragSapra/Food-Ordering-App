@@ -9,7 +9,7 @@ export default function Menu() {
     data: menu,
     isLoading,
     error,
-  } = useHttp("http://localhost:3000/meals", requestConfig, []);
+  } = useHttp(`${import.meta.env.VITE_API_URL}/meals`, requestConfig, []);
 
   if (isLoading) {
     return <p className="center">Fetching meals...</p>;
