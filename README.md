@@ -41,7 +41,6 @@ Backend API: https://food-ordering-app-694h.onrender.com
 ## 🔍 Learning Outcomes
 
 * Connected frontend to production backend
-* Handled mixed-content and CORS issues
 * Configured environment variables for deployment
 * Implemented CI/CD via GitHub and Vercel
 * Debugged real-world deployment problems
