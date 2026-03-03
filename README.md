@@ -4,8 +4,8 @@ A full-stack food ordering application where users can browse meals, add items t
 
 ## Live Demo
 
-Frontend: https://food-ordering-app-three-lyart.vercel.app/
-Backend API: https://food-ordering-app-694h.onrender.com
+* Frontend: https://food-ordering-app-three-lyart.vercel.app/
+* Backend API: https://food-ordering-app-694h.onrender.com
 
 ---
 
