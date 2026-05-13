@@ -12,9 +12,16 @@ export default function Menu() {
   } = useHttp(`${import.meta.env.VITE_API_URL}/meals`, requestConfig, []);
 
   if (isLoading) {
-    return <p className="center">Fetching meals...</p>;
+    return (
+      <div className="center loading-container">
+        <div className="spinner"></div>
+        <p>Fetching meals...</p>
+        <small>
+          The server may take 15-20 seconds to wake up for the first request.
+        </small>
+      </div>
+    );
   }
-
   if (error) {
     return <Error title="Failed to fetch meals" message={error} />;
   }
