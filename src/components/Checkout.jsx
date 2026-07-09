@@ -20,7 +20,7 @@ export default function Checkout() {
   const userProgressCtx = useContext(UserProgressContext);
 
   const { data, error, sendRequest, clearData } = useHttp(
-    `${import.meta.env.VITE_API_URL}/orders`,
+    `${import.meta.env.VITE_API_URL}/api/order`,
     requestConfig,
   );
 
@@ -42,11 +42,20 @@ export default function Checkout() {
   async function checkoutAction(prevState, fd) {
     const customerData = Object.fromEntries(fd.entries());
 
+    const orderItems = cartCtx.items.map((item) => ({
+      menuItemId: item._id,
+      name: item.name,
+      price: item.price,
+      quantity: item.quantity,
+      subtotal: item.price * item.quantity,
+    }));
+
     await sendRequest(
       JSON.stringify({
         order: {
-          items: cartCtx.items,
+          items: orderItems,
           customer: customerData,
+          totalAmount: cartTotal,
         },
       }),
     );
@@ -93,13 +102,13 @@ export default function Checkout() {
     <Modal open={userProgressCtx.progress === "checkout"} onClose={handleClose}>
       <form action={formAction}>
         <h2>Checkout</h2>
-        <p>Total Amount: ${cartTotal}</p>
+        <p>Total Amount: Rs.{cartTotal}</p>
 
-        <Input label="Full-name" type="text" id="name" />
+        <Input label="Full Name" type="text" id="name" />
         <Input label="E-mail Address" type="text" id="email" />
-        <Input label="Street" type="text" id="street" />
+        <Input label="Address" type="text" id="address" />
         <div className="control-row">
-          <Input label="Postal Code" type="number" id="postal-code" />
+          <Input label="Pincode" type="number" id="pincode" />
           <Input label="City" type="text" id="city" />
         </div>
 

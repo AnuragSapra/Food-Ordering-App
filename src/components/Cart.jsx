@@ -32,14 +32,14 @@ export default function Cart() {
       <ul>
         {cartCtx.items.map((item) => (
           <CartItem
-            key={item.id}
+            key={item._id}
             item={item}
             onIncrease={() => cartCtx.addItem(item)}
-            onDecrease={() => cartCtx.removeItem(item.id)}
+            onDecrease={() => cartCtx.removeItem(item._id)}
           />
         ))}
       </ul>
-      <p className="cart-total">${cartTotal}</p>
+      <p className="cart-total">Rs. {cartTotal}</p>
       <p className="modal-actions">
         <Button textOnly onClick={handleCloseCart}>
           Close
