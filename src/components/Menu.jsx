@@ -16,10 +16,6 @@ export default function Menu() {
       <div className="center loading-container">
         <div className="spinner"></div>
         <p>Loading menu...</p>
-        <small>
-          Our server is waking up after inactivity. This usually takes 20-40
-          seconds on the free hosting tier. Thank you for your patience!
-        </small>
       </div>
     );
   }
